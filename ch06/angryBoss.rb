@@ -5,7 +5,6 @@ BEGIN {
 END {
   puts
 }
-
 #Program prompts the user to speak to Angry Boss
 puts "You step into your boss's office."
 puts "Boss: WELL, WHAT DO YOU WANT?"
