@@ -1,10 +1,6 @@
 #Jasper78's Personalized Coding Style
-BEGIN {
-  puts
-}
-END {
-  puts
-}
+BEGIN {puts}
+END {puts}
 
 ##Assign variables to all Table commponents
 title = "Table of Contents"
