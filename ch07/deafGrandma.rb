@@ -17,6 +17,7 @@ while true
   ## and the conversation ends
   if answer == "BYE"
     puts " ALRIGHT, BYE SONNY!"
+    puts "You have exited the conversation with Grandma."
     break
   ##Elsif answer is in all caps
   ## Generate a variable, random_yr, between 1930 and 1950

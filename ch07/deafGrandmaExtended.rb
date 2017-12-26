@@ -27,6 +27,7 @@ while true
       answer2 = gets.chomp
       if answer2 == "BYE"
         puts " ALRIGHT, BYE SONNY!"
+        puts "You have exited the conversation with Grandma."
         break
       end
     end
