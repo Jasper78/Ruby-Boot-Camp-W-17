@@ -8,19 +8,19 @@ BEGIN {puts}
 END {puts}
 
 #Introduces the program
-puts "Welcome! This is a program that generates all leap years"
+puts ">Welcome! This is a program that generates all leap years"
 puts " between any two years of your choice."
 
 #Prompts user to enter a starting year, start_yr
-puts "Please enter a starting year:"
+puts ">Please enter a starting year:"
 start_yr = gets.chomp.to_i
 #Prompts user to enter an ending year, end_yr
-puts "Please enter an ending year:"
+puts ">Please enter an ending year:"
 end_yr = gets.chomp.to_i
 while true
   if start_yr >= end_yr
-    puts "I'm sorry. The ending year has to be after the starting year."
-    puts "Please enter a new ending year:"
+    puts ">I'm sorry. The ending year has to be after the starting year."
+    puts ">Please enter a new ending year:"
     end_yr = gets.chomp.to_i
   else
     break
@@ -28,7 +28,7 @@ while true
 end
 
 #Set up the answer
-answer = "Leap years between " + start_yr.to_s + " and " + end_yr.to_s + ": "
+answer = ">Leap years between " + start_yr.to_s + " and " + end_yr.to_s + ": "
 
 #Create a loop that goes through all numbers from start_yr to end-Yr
 x = start_yr - 1
