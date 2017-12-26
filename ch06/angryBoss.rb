@@ -1,3 +1,7 @@
+#Author: Rebecca Wu (Jasper78)
+#Date: 12/23/2017
+#This program allows the user to interact with Angry Boss.
+
 #Jasper78's Personalized Coding Style
 BEGIN {puts}
 END {puts}
