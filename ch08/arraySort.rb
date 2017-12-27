@@ -1,5 +1,5 @@
 #Author: Rebecca Wu (Jasper78)
-#Date:
+#Date: 12/27/2017
 #This program sorts an inputted array of strings by alphabetical order.
 
 #Jasper78's Personalized Coding Style
