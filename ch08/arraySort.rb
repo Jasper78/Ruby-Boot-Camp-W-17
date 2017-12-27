@@ -6,40 +6,58 @@
 BEGIN {puts}
 END {puts}
 
+#Prepares a method to check for case
+def check_upcase(array)
+  new_array = []
+  array.each do |thing|
+    new_array.push(thing.downcase)
+  end
+  return new_array != array
+end
+
+#Creates empty array
+user_array = []
+
 #Prompts user to enter strings to be sorted
 puts ">Please enter the strings you wish to see sorted, one per line"
-puts " (No capitalized letters please). Press enter on a blank line "
+puts " (no capitalized letters please). Press 'enter' on a blank line "
 puts " when you are finished."
-#Records the input as an array of strings
-input = gets.chomp
-user_array = [].push(input)
-while input != ""
+#Sets conditions that ask for new input if input not valid
+while true
+  #Records the input as an array of strings
   input = gets.chomp
-  user_array = user_array.push(input)
+  user_array = []
+  user_array.push(input)
+  while input != ""
+    input = gets.chomp
+    user_array = user_array.push(input)
+  end
+  #Returns error if user_array is blank
+  # and asks for new input
+  if user_array == [""]
+    puts ">I'm sorry, the program was unable to sort your strings"#
+    puts " because you did not input any strings. The program cannot"
+    puts " sort your strings if you do not tell it what your strings"
+    puts " are."
+    puts
+    puts ">Please reenter your strings."
+  #Returns error if user_array includes upper case
+  # and asks for new input
+  elsif check_upcase(user_array)
+    puts ">I'm sorry, the program was unable to sort your strings"
+    puts " because you included capital letters. The program is"
+    puts " disappointed in your ability to read instructions."
+    puts
+    puts ">Please reenter yours strings."
+  #Exits loop if array is valid
+  else
+    break
+  end
 end
 
 #Sorts the strings by alphabetical order
 sorted_array = user_array.sort
-downcased_array = []
-sorted_array.each do |string|
-  downcased_array = downcased_array.push(string.downcase)
-end
 
 #Returns a sorted array of strings to the user
-if sorted_array == downcased_array && sorted_array != [""]
-  print ">Here are your words in alphabetical order:"
-  puts sorted_array
-#Or not
-  elsif sorted_array == [""]
-    puts ">I'm sorry, the program was unable to sort your strings"
-    puts " because you DID NOT INPUT ANY STRINGS. The program cannot"
-    puts " sort your strings if you do not tell it what your strings"
-    puts " are."
-  elsif sorted_array != downcased_array
-    puts ">I'm sorry, the program was unable to sort your strings"
-    puts " because they INCLUDED CAPITAL LETTERS. The program is"
-    puts " disappointed in your ability to read instructions."
-  else
-    puts ">An unknown error occurred. Please contact our Help Desk"
-    puts " at rwu888@berkeley.edu."
-end
+print ">Here are your words in alphabetical order:"
+puts sorted_array
