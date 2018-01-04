@@ -86,4 +86,6 @@ else
   puts
   puts ">An unknown error occurred. Please contact our Help Desk at "
   puts " rwu888@berkeley.edu."
+  # Note: This line is mostly for fun. I do not expect this code to ever run,
+  #  though it would be interesting if it did.
 end
