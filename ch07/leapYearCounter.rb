@@ -10,38 +10,47 @@ END {puts}
 #Introduces the program
 puts ">Welcome! This is a program that generates all leap years"
 puts " between any two years of your choice."
+puts
 
 #Prompts user to enter a starting year, start_yr
 puts ">Please enter a starting year:"
 start_yr = gets.chomp.to_i
+puts
 #Prompts user to enter an ending year, end_yr
 puts ">Please enter an ending year:"
 end_yr = gets.chomp.to_i
-while true
-  if start_yr >= end_yr
-    puts ">I'm sorry. The ending year has to be after the starting year."
-    puts ">Please enter a new ending year:"
-    end_yr = gets.chomp.to_i
-  else
-    break
-  end
+# Filter ending year
+while start_yr >= end_yr
+  puts
+  puts ">I'm sorry. The ending year has to be after the starting year."
+  puts ">Please enter a new ending year:"
+  end_yr = gets.chomp.to_i
 end
 
-#Set up the answer
-answer = ">Leap years between " + start_yr.to_s + " and " + end_yr.to_s + ": "
+#Sets up two variables to keep track of the leap years
+answer = " leap years between " + start_yr.to_s + " and " + end_yr.to_s + ": "
+num_leap_yrs = 0
 
 #Create a loop that goes through all numbers from start_yr to end-Yr
-x = start_yr - 1
+x = start_yr
 while true
-  x += 1
   if x > end_yr
     break
-  elsif x%400 == 0
+  elsif x%400 == 0 || (x%4 == 0 && x%100 != 0)
     answer += x.to_s + ", "
-  elsif x%4 == 0 && x%100 != 0
-    answer += x.to_s + ", "
+    num_leap_yrs += 1
   end
+  x += 1
 end
-#Outputs the answer
-final_answer = answer[0..-3] + "."
-puts final_answer
+
+# Format final answer
+puts
+if num_leap_yrs == 1  # BEGIN final answer if
+  puts ">There is 1 leap year" + answer[11..-3] + "."
+else
+  puts ">There are " + num_leap_yrs.to_s + answer[0..-3] + "."
+end  # END final answer if
+
+# Note: Jasper78 has decided to incorporate a "BEGIN" & "END" comment next to
+#  the beginning and end of each "while", "if", and "each" block, to help keep
+#  track of the code.

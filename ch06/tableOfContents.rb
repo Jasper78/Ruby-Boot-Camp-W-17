@@ -1,12 +1,12 @@
-#Author: Rebecca Wu (Jasper78)
-#Date: 12/23/2017
-#This program generates a formatted Table of Contents.
+# Author: Rebecca Wu (Jasper78)
+# Date: 12/23/2017
+# This program generates a formatted Table of Contents.
 
-#Jasper78's Personalized Coding Style
+# Jasper78's Personalized Coding Style
 BEGIN {puts}
 END {puts}
 
-##Assign variables to all Table commponents
+# Assign variables to all Table commponents
 title = "Table of Contents"
 chap1 = "Chapter 1:  Getting Started"
 p1 = "page  1"
@@ -15,12 +15,12 @@ p2 = "page  9"
 chap3 = "Chapter 3:  Letters"
 p3 = "page 13"
 
-#Assign a value to the Table half_width
+# Assign a value to the Table half_width
 half_width = chap1.length
 
-#Output the ordered Table of Contents
+# Output the ordered Table of Contents
 puts title.center(2*half_width)
 puts
-puts ( chap1.ljust(half_width) + p1.rjust(half_width) )
-puts ( chap2.ljust(half_width) + p2.rjust(half_width) )
-puts ( chap3.ljust(half_width) + p3.rjust(half_width) )
+puts chap1.ljust(half_width) + p1.rjust(half_width)
+puts chap2.ljust(half_width) + p2.rjust(half_width)
+puts chap3.ljust(half_width) + p3.rjust(half_width)
