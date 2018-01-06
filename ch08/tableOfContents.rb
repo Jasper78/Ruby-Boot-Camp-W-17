@@ -1,25 +1,37 @@
-#Author: Rebecca Wu (Jasper78)
-#Date: 12/26/2017
-#This program outputs a formatted Table of Contents from an array.
+# Author: Rebecca Wu (Jasper78)
+# Date: 12/26/2017
+# This program outputs a formatted Table of Contents from an array.
 
-#Jasper78's Personalized Coding Style
+# Jasper78's Personalized Coding Style
 BEGIN {puts}
 END {puts}
 
-##Create an array with all Table components
-table = [
-  "Table of Contents",
-  "Chapter 1:  Getting Started", "page  1",
-  "Chapter 2:  Numbers", "page  9",
-  "Chapter 3:  Letters", "page 13"
-]
+# Stores Table components in variables
+title = "Table of Contents"
+table = [ ["Getting Started", " 1"], ["Numbers", " 9"], ["Letters", "13"] ]
 
-#Assign a value to the Table's half_width
-half_width = table[1].length
+# Defines a method to output the formatted table
+def table_of_contents (title, array, width) # BEGIN method def block
+  puts title.center(width)
+  index = 0
+  # I would like to include the index in my each method, but am unsur of how to
+  #  do so. The ways I tried ended up passing the "Getting Started" as arr, and
+  #  " 1" as the variable index.
+  array.each do |arr| # BEGIN each block
+    index += 1
+    chapter = "Chapter " + index.to_s + ": " + arr[0]
+    page = "page " + arr[1]
+    if chapter.length > 2*width/3 || page.length > width/3  # BEGIN if block
+      puts "I'm sorry, the width was too small for this row to fit."
+      # This is to prevent the method from returning a table of contents
+      #  where every row is not the same length.
+    else
+      puts chapter.ljust(2*width/3) + page.rjust(width/3)
+      # I chose 2/3s and 1/3s because the page tends to be shorter than the
+      #  chapter.
+    end  # END if block
+  end  # END each block
+end # ENG method def block
 
-#Output the organized Table of Contents
-puts table[0].center(2*half_width)
-puts
-puts ( table[1].ljust(half_width) + table[2].rjust(half_width) )
-puts ( table[3].ljust(half_width) + table[4].rjust(half_width) )
-puts ( table[5].ljust(half_width) + table[6].rjust(half_width) )
+# Tests our method on table
+table_of_contents(title, table, 40)
