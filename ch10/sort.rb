@@ -36,7 +36,10 @@ def recursive_sort(unsorted_array, sorted_array)
     end
     sorted_array.push(smallest)
     unsorted_array.delete(smallest)
-  #break if unsorted_array is blank
+    #break if unsorted_array is blank
+    if !unsorted_array.length > 0
+      break
+    end
   end
 end
 
